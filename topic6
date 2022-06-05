@@ -110,6 +110,11 @@ int main() {
 				getline(cin, name);
 				cout << "enter teacher id : " << endl;
 				cin >> id;
+				idcheck = recCheck(head, id);
+				if (idcheck) {
+					cout << "Id number is already in database." << endl;
+					break;
+				}
 				while (title) {
 					cout << "enter teacher title: 1 for lecturer, 2 for assistance professor or 3 for associate professor." << endl;
 					cin >> ititle;
