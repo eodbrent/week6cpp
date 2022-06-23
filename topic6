@@ -80,35 +80,38 @@ int main() {
 	Teacher* t;
 	while (loop) {
 		bool title = true;
-		cout << "1 for new student record" << endl;
-		cout << "2 for new teacher record" << endl;
-		cout << "3 to display all records" << endl;
-		cout << "4 to exit" << endl;
+		cout << "\t\tWelcome to RU Record Management System" << endl;
+		cout << "\n\tPress" << endl;
+		cout << "\t1 for new student record" << endl;
+		cout << "\t2 for new teacher record" << endl;
+		cout << "\t3 to display all records" << endl;
+		cout << "\t4 to exit" << endl;
+		cout << "\nEnter your choice" << endl;
 		cin >> choice;
 		cin.ignore();
 		switch(choice){
 			case 1:
-				cout << "enter student name: " << endl;
+				cout << "Enter student name: " << endl;
 				getline(cin, name);
-				cout << "enter student id: " << endl;
+				cout << "Enter student id: " << endl;
 				cin >> id;
 				idcheck = recCheck(head, id);
 				if (idcheck) {
 					cout << "Id number is already in database." << endl;
 					break;
 				}
-				cout << "enter student year: " << endl;
+				cout << "Enter student year: " << endl;
 				cin >> year;
-				cout << "enter student's average grade: " << endl;
+				cout << "Enter student's average grade: " << endl;
 				cin >> avg;
 				st = newStudent(id, name, year, avg);
 				st->next = head;
 				head = st;
 				break;
 			case 2:
-				cout << "enter teacher name: " << endl;
+				cout << "Enter teacher name: " << endl;
 				getline(cin, name);
-				cout << "enter teacher id : " << endl;
+				cout << "Enter teacher id : " << endl;
 				cin >> id;
 				idcheck = recCheck(head, id);
 				if (idcheck) {
@@ -116,7 +119,7 @@ int main() {
 					break;
 				}
 				while (title) {
-					cout << "enter teacher title: 1 for lecturer, 2 for assistance professor or 3 for associate professor." << endl;
+					cout << "Enter teacher title: 1 for lecturer, 2 for assistance professor or 3 for associate professor." << endl;
 					cin >> ititle;
 					if (ititle == 1) {
 						stitle = "lecturer";
@@ -134,7 +137,7 @@ int main() {
 					}
 				}
 				cin.ignore();
-				cout << "enter teacher department: " << endl;
+				cout << "Enter teacher department: " << endl;
 				getline(cin, dept);
 				t = newTeacher(id, name, stitle, dept);
 				t->next = head;
@@ -142,6 +145,7 @@ int main() {
 				break;
 			case 3:
 				displayRecords(head);
+				cout << endl;
 				break;
 			case 4:
 				loop = false;
